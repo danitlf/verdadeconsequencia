@@ -21,24 +21,54 @@ const styles = StyleSheet.create({
         bottom: 2,
         position: 'absolute',
     },
+     buttonGame: {
+        width: 100,
+        height: 50,
+        backgroundColor: "#e0e806",
+        justifyContent: "center",
+        borderRadius: 10,
+
+    },
+    textPlay: {
+        color: "black",
+        alignSelf: "center",
+        fontSize: 20,
+        fontWeight: "700",
+
+
+    },
 
 
 });
 
 class GameScreen extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        this._back = this._back.bind(this);
 
+    }
 
+    _back() {
+        this.props.navigator.pop();
     }
 
     render() {
 
         return (
             <View style={styles.containerStyle}>
+                <TouchableHighlight
+                    onPress={this._back}
+                    style={styles.buttonGame}
+                >
+                    <Text style={styles.textPlay}>Voltar</Text>
+                </TouchableHighlight>
+
+
                 <Image style={styles.footer} source={require("../../img/fire.png")} />
+
             </View>
         );
+
     }
 }
 
