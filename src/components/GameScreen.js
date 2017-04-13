@@ -7,6 +7,8 @@ import {
     , Image
 } from 'react-native';
 
+import GameEngine from './GameEngine';
+
 const windowWidth = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
@@ -63,7 +65,7 @@ class GameScreen extends Component {
                     <Text style={styles.textPlay}>Voltar</Text>
                 </TouchableHighlight>
 
-
+                <GameEngine/>
                 <Image style={styles.footer} source={require("../../img/fire.png")} />
 
             </View>
