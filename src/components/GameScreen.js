@@ -14,7 +14,7 @@ const windowWidth = Dimensions.get('window').width;
 const styles = StyleSheet.create({
     containerStyle: {
         flex: 1,
-        backgroundColor: "#000"
+        backgroundColor: "#fff"
     },
     footer: {
         width: windowWidth,
@@ -23,13 +23,11 @@ const styles = StyleSheet.create({
         bottom: 2,
         position: 'absolute',
     },
-     buttonGame: {
-        width: 100,
+     buttonBack: {
+        width: 50,
         height: 50,
-        backgroundColor: "#e0e806",
-        justifyContent: "center",
-        borderRadius: 10,
-
+        marginTop: 20,
+        marginLeft: 10,
     },
     textPlay: {
         color: "black",
@@ -60,9 +58,8 @@ class GameScreen extends Component {
             <View style={styles.containerStyle}>
                 <TouchableHighlight
                     onPress={this._back}
-                    style={styles.buttonGame}
                 >
-                    <Text style={styles.textPlay}>Voltar</Text>
+                    <Image style={styles.buttonBack} source={require("../../img/back.png")} />
                 </TouchableHighlight>
 
                 <GameEngine/>
