@@ -5,6 +5,10 @@ var Draw = {
     drawConsequencia(consquencias){
 
     },
+
+    drawPlayer(players){
+        
+    },
 };
 
 module.exports = Draw;

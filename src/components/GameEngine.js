@@ -9,6 +9,7 @@ import {
 
 import { Container, Content, Card, CardItem, Body } from 'native-base';
 
+import GameBoard from './GameBoard';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -57,21 +58,7 @@ const styles = StyleSheet.create({
         width: windowWidth,
         flexDirection: 'row',
         justifyContent: 'space-around',
-    },
-
-    containerCard: {
-        width: windowWidth - 20,
-        height: 300,
-        // backgroundColor: "blue",
-        position: "absolute",
-        alignSelf: "center",
-        justifyContent: "center",
-
-    },
-
-    
-
-
+    }
 });
 
 class GameEngine extends Component {
@@ -107,23 +94,8 @@ class GameEngine extends Component {
 
         return (
             <View style={styles.containerStyle}>
-                <View style={styles.containerCard}>
-                    <Container>
-                        <Content>
-                            <Card>
-                                <CardItem>
-                                    <Body>
-                                        <View>
-                                            <Text style={{height:200}}>
-                                            //Your text here
-                                            </Text>
-                                        </View>
-                                    </Body>
-                                </CardItem>
-                            </Card>
-                        </Content>
-                    </Container>
-                </View>
+
+                <GameBoard/>
 
                 <View style={styles.buttonsSpace}>
                     {this.state.sorteado && (

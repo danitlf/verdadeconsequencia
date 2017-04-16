@@ -63,6 +63,7 @@ class GameScreen extends Component {
                 </TouchableHighlight>
 
                 <GameEngine/>
+                
                 <Image style={styles.footer} source={require("../../img/fire.png")} />
 
             </View>
