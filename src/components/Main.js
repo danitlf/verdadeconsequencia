@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#000",
         justifyContent: "center",
     },
+    
     footer: {
         width: windowWidth,
         height: 150,
@@ -33,6 +34,17 @@ const styles = StyleSheet.create({
         borderRadius: 10,
 
     },
+
+    buttonPergunta: {
+        width: 300,
+        height: 50,
+        backgroundColor: "#f28a02",
+        alignSelf: "center",
+        marginTop: 25,
+        justifyContent: "center",
+        borderRadius: 10,
+    },
+
     textPlay: {
         color: "white",
         alignSelf: "center",
@@ -68,6 +80,15 @@ class Main extends Component {
                 >
                     <Text style={styles.textPlay}> Jogar </Text>
                 </TouchableHighlight>
+
+                <TouchableHighlight
+                    onPress={this._startGame}
+                    title="Cadastrar Pergunta"
+                    style={styles.buttonPergunta}
+                >
+                    <Text style={styles.textPlay}> Cadastrar Pergunta </Text>
+                </TouchableHighlight>
+
 
 
                 <Image style={styles.footer} source={require("../../img/fire.png")} />

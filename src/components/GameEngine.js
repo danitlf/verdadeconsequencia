@@ -6,6 +6,8 @@ import {
     TouchableWithoutFeedback
     , Image
 } from 'react-native';
+import PubSub from 'pubsub-js';
+
 
 import { Container, Content, Card, CardItem, Body } from 'native-base';
 
@@ -69,25 +71,28 @@ class GameEngine extends Component {
         this._sorteiaJogador = this._sorteiaJogador.bind(this);
         this.state = {
             sorteado: false,
-        };
+        };  
 
     }
     _sorteiaVerdade() {
         this.setState({
             sorteado: false,
         });
+        PubSub.publish( 'sorteado', {sorteado: false} );
     }
 
     _sorteiaJogador() {
         this.setState({
             sorteado: true,
         });
+        PubSub.publish( 'sorteado', {sorteado: true});
     }
 
     _sorteiaConsequencia() {
         this.setState({
             sorteado: false,
         });
+        PubSub.publish( 'sorteado', {sorteado: false} );
     }
 
     render() {
