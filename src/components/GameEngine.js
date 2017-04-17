@@ -85,7 +85,6 @@ class GameEngine extends Component {
         }
         return listaSorteados;
     }
-
     _sorteiaVerdade() {
         this.setState({
             sorteado: false,
