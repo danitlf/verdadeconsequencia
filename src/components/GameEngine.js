@@ -7,7 +7,7 @@ import {
     , Image
 } from 'react-native';
 import PubSub from 'pubsub-js';
-
+import Draw from '../utils/Draw';
 
 import { Container, Content, Card, CardItem, Body } from 'native-base';
 
@@ -71,26 +71,48 @@ class GameEngine extends Component {
         this._sorteiaJogador = this._sorteiaJogador.bind(this);
         this.state = {
             sorteado: false,
+            jogadorSorteado: "",
+            playersSorteados: this.geraJogadores(),
+            jogadorAtual: 0,
+
         };  
 
     }
+    geraJogadores(){
+        var listaSorteados =  [this.props.players[0]]
+        for(i=1; i<50;i++){
+            listaSorteados.push(Draw.drawPlayer(this.props.players, listaSorteados[i-1]));
+        }
+        return listaSorteados;
+    }
+
     _sorteiaVerdade() {
         this.setState({
             sorteado: false,
+            jogadorSorteado: "",
         });
         PubSub.publish( 'sorteado', {sorteado: false} );
     }
 
     _sorteiaJogador() {
+        PubSub.publish( 'sorteado', {sorteado: true, jogadorSorteado: this.state.playersSorteados[this.state.jogadorAtual]});
         this.setState({
             sorteado: true,
-        });
-        PubSub.publish( 'sorteado', {sorteado: true});
+            jogadorAtual: this.state.jogadorAtual+1
+        });    
+        if(this.state.playersSorteados.length < this.state.jogadorAtual + 10){
+            this.setState({
+                jogadorAtual: 0,
+                playersSorteados: this.geraJogadores(),
+            });
+        }  
+       
     }
 
     _sorteiaConsequencia() {
         this.setState({
             sorteado: false,
+            jogadorSorteado: "",
         });
         PubSub.publish( 'sorteado', {sorteado: false} );
     }

@@ -26,9 +26,15 @@ const styles = StyleSheet.create({
      buttonBack: {
         width: 50,
         height: 50,
+    },
+
+    buttonBackContainer:{
+        width: 50,
+        height: 50,
         marginTop: 20,
         marginLeft: 10,
     },
+
     textPlay: {
         color: "black",
         alignSelf: "center",
@@ -57,12 +63,13 @@ class GameScreen extends Component {
         return (
             <View style={styles.containerStyle}>
                 <TouchableHighlight
+                    style={styles.buttonBackContainer}
                     onPress={this._back}
                 >
                     <Image style={styles.buttonBack} source={require("../../img/back.png")} />
                 </TouchableHighlight>
 
-                <GameEngine/>
+                <GameEngine players={["daniel", "luana", "fernanda", "rafa"]} />
                 
                 <Image style={styles.footer} source={require("../../img/fire.png")} />
 

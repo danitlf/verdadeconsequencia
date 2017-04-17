@@ -1,13 +1,17 @@
 var Draw = {
-    drawVerdade(verdades){
+    drawVerdade(verdades) {
 
     },
-    drawConsequencia(consquencias){
+    drawConsequencia(consquencias) {
 
     },
 
-    drawPlayer(players){
-        
+    drawPlayer(players, jogadorAnterior) {
+        var numSorteado = Math.floor(Math.random() * players.length); 
+        while(players[numSorteado] == jogadorAnterior){
+            numSorteado = Math.floor(Math.random() * players.length);  
+        }
+        return players[numSorteado];
     },
 };
 

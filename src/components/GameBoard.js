@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
 
     }
 
-    
+
 
 
 });
@@ -43,20 +43,23 @@ class GameBoard extends Component {
         this.state = {
             sorteado: false,
             jogadorSorteado: "",
+            question: ""
         };
-        PubSub.subscribe( 'sorteado', function(msg, sort){
+        PubSub.subscribe('sorteado', function (msg, data) {
             this.setState({
-                sorteado: sort.sorteado,
+                jogadorSorteado: data.jogadorSorteado,
+                sorteado: data.sorteado,
+               
             });
         }.bind(this));
-        
+
 
     }
 
     render() {
 
         return (
-             <View style={styles.containerCard}>
+            <View style={styles.containerCard}>
                 <Container>
                     <Content>
                         <Card>
@@ -64,9 +67,14 @@ class GameBoard extends Component {
                                 <Body>
                                     <View style={styles.contentCard}>
                                         {this.state.sorteado &&
-                                        <Text style={{ height: 200, alignSelf: "center" }}>
-                                       Jogador Sorteado: {this.state.jogadorSorteado}
-                                        </Text>}
+                                            <Text style={{ height: 50, alignSelf: "center" }}>
+                                                Jogador Sorteado: {this.state.jogadorSorteado}
+                                            </Text>}
+                                        <View style={{ height: 150, alignSelf: "center", justifyContent: "center" }}>
+                                            <Text style={{alignSelf: "center"}}>
+                                                {this.state.question}
+                                            </Text>
+                                        </View>
                                     </View>
                                 </Body>
                             </CardItem>
