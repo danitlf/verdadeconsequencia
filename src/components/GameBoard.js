@@ -15,25 +15,46 @@ const windowHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
     containerCard: {
         width: windowWidth - 20,
-        height: 300,
-        // backgroundColor: "blue",
+        height: 200,
+        borderRadius: 10,
+        backgroundColor: "#000",
         position: "absolute",
         alignSelf: "center",
         justifyContent: "center",
-
+        borderColor: "#f28a02",
+        borderWidth: 4,
     },
 
     contentCard: {
         justifyContent: "center",
-        width: windowWidth - 20,
         alignSelf: "center",
-        height: 200
+        marginTop: 30,
 
-    }
+    },
 
+    textoJogador: {
+        height: 50,
+        alignSelf: "center",
+        color: "#fff",
+        fontWeight: "700",
+        fontSize: 15,
+    },
 
-
-
+    textoQuestao: {
+        alignSelf: "center",
+        color: "#fff",
+        fontWeight: "700",
+        fontSize: 15,
+    },
+    contentQuestions: {
+        height: 150,
+        alignSelf: "center",
+        justifyContent: "center",
+        marginRight: 20,
+        marginLeft: 20,
+        position: "relative",
+        top: -30,
+    },
 });
 
 class GameBoard extends Component {
@@ -43,13 +64,13 @@ class GameBoard extends Component {
         this.state = {
             sorteado: false,
             jogadorSorteado: "",
-            question: ""
+            question: "tire a roupa e troque com a pessoa ao seu lado! jfkjebvkjwdjkvwkjfvbkwjfbkvwfvkwjfk"
         };
         PubSub.subscribe('sorteado', function (msg, data) {
             this.setState({
                 jogadorSorteado: data.jogadorSorteado,
                 sorteado: data.sorteado,
-               
+
             });
         }.bind(this));
 
@@ -60,27 +81,17 @@ class GameBoard extends Component {
 
         return (
             <View style={styles.containerCard}>
-                <Container>
-                    <Content>
-                        <Card>
-                            <CardItem>
-                                <Body>
-                                    <View style={styles.contentCard}>
-                                        {this.state.sorteado &&
-                                            <Text style={{ height: 50, alignSelf: "center" }}>
-                                                Jogador Sorteado: {this.state.jogadorSorteado}
-                                            </Text>}
-                                        <View style={{ height: 150, alignSelf: "center", justifyContent: "center" }}>
-                                            <Text style={{alignSelf: "center"}}>
-                                                {this.state.question}
-                                            </Text>
-                                        </View>
-                                    </View>
-                                </Body>
-                            </CardItem>
-                        </Card>
-                    </Content>
-                </Container>
+                <View style={styles.contentCard}>
+                    <Text style={styles.textoJogador}>
+                        Jogador Sorteado: {this.state.jogadorSorteado}
+                    </Text>
+                    <View style={styles.contentQuestions}>
+                        <Text style={styles.textoQuestao}>
+                            {this.state.question}
+                        </Text>
+                    </View>
+                </View>
+
             </View>
 
 

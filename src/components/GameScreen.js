@@ -14,7 +14,7 @@ const windowWidth = Dimensions.get('window').width;
 const styles = StyleSheet.create({
     containerStyle: {
         flex: 1,
-        backgroundColor: "#fff"
+        backgroundColor: "#000"
     },
     footer: {
         width: windowWidth,

@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     containerStyle: {
         width: windowWidth,
         height: windowHeight / 2,
-        backgroundColor: "#fff",
+        backgroundColor: "#000",
         justifyContent: "center"
 
     },
