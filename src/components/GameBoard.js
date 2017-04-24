@@ -17,11 +17,12 @@ const styles = StyleSheet.create({
         width: windowWidth - 20,
         height: 200,
         borderRadius: 10,
-        backgroundColor: "#000",
+        backgroundColor: "#fff",
         position: "absolute",
         alignSelf: "center",
         justifyContent: "center",
-        borderColor: "#f28a02",
+        //borderColor: "#f28a02",
+        borderColor: "#fff",
         borderWidth: 4,
     },
 
@@ -35,14 +36,14 @@ const styles = StyleSheet.create({
     textoJogador: {
         height: 50,
         alignSelf: "center",
-        color: "#fff",
+        color: "#000",
         fontWeight: "700",
         fontSize: 15,
     },
 
     textoQuestao: {
         alignSelf: "center",
-        color: "#fff",
+        color: "#000",
         fontWeight: "700",
         fontSize: 15,
     },
