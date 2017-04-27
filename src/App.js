@@ -8,7 +8,8 @@ import {
 } from 'react-native';
 
 import Main from './components/Main';
-import GameScreen from './components/GameScreen'
+import GameScreen from './components/GameScreen';
+import ChoiceTypeGame from './components/ChoiceTypeGame';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -34,6 +35,9 @@ class App extends Component {
         }
         if (route.name == 'GameScreen') {
             return <GameScreen navigator={navigator} />
+        }
+        if (route.name == 'ChoiceTypeGame') {
+            return <ChoiceTypeGame navigator={navigator} />
         }
     }
 

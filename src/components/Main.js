@@ -65,7 +65,7 @@ class Main extends Component {
     }
     _startGame() {
         this.props.navigator.push({
-            name: 'GameScreen', // Matches route.name
+            name: 'ChoiceTypeGame', // Matches route.name
         })
     }
 
